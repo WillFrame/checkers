@@ -14,6 +14,7 @@
 		BA799EC42B1B5C68003FD1CC /* checkersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799EC32B1B5C68003FD1CC /* checkersTests.swift */; };
 		BA799ECE2B1B5C69003FD1CC /* checkersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECD2B1B5C69003FD1CC /* checkersUITests.swift */; };
 		BA799ED02B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */; };
+		BA799EDD2B1B5EEE003FD1CC /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = BA799EDC2B1B5EEE003FD1CC /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		BA799EC92B1B5C69003FD1CC /* checkersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = checkersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA799ECD2B1B5C69003FD1CC /* checkersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITests.swift; sourceTree = "<group>"; };
 		BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA799EDC2B1B5EEE003FD1CC /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		BA799EA62B1B5C62003FD1CC = {
 			isa = PBXGroup;
 			children = (
+				BA799EDC2B1B5EEE003FD1CC /* readme.md */,
 				BA799EB12B1B5C62003FD1CC /* checkers */,
 				BA799EC22B1B5C68003FD1CC /* checkersTests */,
 				BA799ECC2B1B5C69003FD1CC /* checkersUITests */,
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA799EBA2B1B5C68003FD1CC /* Preview Assets.xcassets in Resources */,
+				BA799EDD2B1B5EEE003FD1CC /* readme.md in Resources */,
 				BA799EB72B1B5C68003FD1CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
