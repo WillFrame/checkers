@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F08712B1E562300A1C2AF /* Settings.swift */; };
+		BA2F08742B1E570E00A1C2AF /* PlayTogether.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F08732B1E570E00A1C2AF /* PlayTogether.swift */; };
 		BA799EB32B1B5C62003FD1CC /* checkersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799EB22B1B5C62003FD1CC /* checkersApp.swift */; };
 		BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799EB42B1B5C62003FD1CC /* ContentView.swift */; };
 		BA799EB72B1B5C68003FD1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA799EB62B1B5C68003FD1CC /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA2F08712B1E562300A1C2AF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		BA2F08732B1E570E00A1C2AF /* PlayTogether.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTogether.swift; sourceTree = "<group>"; };
 		BA799EAF2B1B5C62003FD1CC /* checkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA799EB22B1B5C62003FD1CC /* checkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersApp.swift; sourceTree = "<group>"; };
 		BA799EB42B1B5C62003FD1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				BA799EB42B1B5C62003FD1CC /* ContentView.swift */,
 				BA799EB62B1B5C68003FD1CC /* Assets.xcassets */,
 				BA799EB82B1B5C68003FD1CC /* Preview Content */,
+				BA2F08712B1E562300A1C2AF /* Settings.swift */,
+				BA2F08732B1E570E00A1C2AF /* PlayTogether.swift */,
 			);
 			path = checkers;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */,
+				BA2F08742B1E570E00A1C2AF /* PlayTogether.swift in Sources */,
 				BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */,
 				BA799EB32B1B5C62003FD1CC /* checkersApp.swift in Sources */,
 			);
