@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var tapCount = 0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button(
+                action: {
+                    print("Играть вдвоем")
+                }
+            ) {
+                Text("Играть вдвоем")
+            }
+			Button(
+				action: {
+					print("Тестовая кнопка")
+				}
+			) {
+				Text("Тестовая кнопка")
+			}
+            Button(
+                action: {
+                    print("Настройки")
+                }
+            ) {
+                Text("Настройки")
+            }
         }
-        .padding()
     }
 }
 
