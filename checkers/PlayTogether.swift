@@ -21,7 +21,7 @@ struct PlayTogether: View {
 						} else {
 							Text("")
 								.frame(width: 50, height: 50)
-								.background(.brown)
+								.background(.black)
 								.padding(0)
 						}
 					}

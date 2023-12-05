@@ -8,52 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var tapCount = 0
 	@State private var tagSelection: String? = nil
-    
-    var body: some View {
-        VStack {
+	
+	var body: some View {
+		VStack {
 			NavigationView {
-				VStack {
+				VStack(spacing: 20) {
 					NavigationLink(
-						destination: PlayTogether(),tag: "Играть вдвоем", selection: $tagSelection
-					) { EmptyView() }
-					NavigationLink(destination: Settings(), tag: "Настройки", selection: $tagSelection) { EmptyView() }
-					
-					Button(
-						action: {tagSelection = "Играть вдвоем"}
+						destination: PlayTogether(),
+						tag: "playTogether",
+						selection: $tagSelection
 					) {
-						Text("Играть вдвоем")
-							.frame(width: 160)
-							.padding([.horizontal], 30)
-							.padding([.vertical], 10)
-							.background(.brown)
-							.cornerRadius(20)
-							.foregroundStyle(.black)
-							
+						NavigationButton(title: "Играть вдвоем") {
+							tagSelection = "playTogether"
+						}
 					}
-					Button(
-						action: {tagSelection = "Настройки"}
+					NavigationLink(
+						destination: Settings(),
+						tag: "settings",
+						selection: $tagSelection
 					) {
-						Text("Настройки")
-							.frame(width: 160)
-							.padding([.horizontal], 30)
-							.padding([.vertical], 10)
-							.background(.brown)
-							.cornerRadius(20)
-							.foregroundStyle(.black)
+						NavigationButton(title: "Настройки") {
+							tagSelection = "settings"
+						}
 					}
 				}
 				.navigationTitle("Главное меню")
-				.frame(width: 160, height: 70)
-				.padding([.bottom], 80)
+				.padding(.bottom, 100)
 			}
 		}
-    }
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }
