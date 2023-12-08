@@ -15,7 +15,7 @@ struct ContentView: View {
 			NavigationView {
 				VStack(spacing: 20) {
 					NavigationLink(
-						destination: PlayTogether(),
+						destination: Field(),
 						tag: "playTogether",
 						selection: $tagSelection
 					) {

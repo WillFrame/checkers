@@ -7,21 +7,27 @@
 
 import SwiftUI
 
-struct PlayTogether: View {
+struct Field: View {
 	var body: some View {
 		HStack(spacing: 0) {
 			ForEach ((1...8), id: \.self) { hId in
 				VStack(spacing: 0) {
 					ForEach ((1...8), id: \.self) { vId in
 						if (vId + hId) % 2 == 1 {
-							Text("")
+							HStack() {
+								Checker(color: .black)
+									.padding(2)
+							}
 								.frame(width: 50, height: 50)
 								.background(.white)
 								.padding(0)
 						} else {
-							Text("")
+							HStack() {
+								Checker(color: .white)
+									.padding(2)
+							}
 								.frame(width: 50, height: 50)
-								.background(.black)
+								.background(.brown)
 								.padding(0)
 						}
 					}
