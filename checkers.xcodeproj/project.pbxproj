@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2139122B23BC050037C10B /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2139112B23BC050037C10B /* Checker.swift */; };
 		BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F08712B1E562300A1C2AF /* Settings.swift */; };
-		BA2F08742B1E570E00A1C2AF /* PlayTogether.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F08732B1E570E00A1C2AF /* PlayTogether.swift */; };
+		BA2F08742B1E570E00A1C2AF /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F08732B1E570E00A1C2AF /* Field.swift */; };
 		BA799EB32B1B5C62003FD1CC /* checkersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799EB22B1B5C62003FD1CC /* checkersApp.swift */; };
 		BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799EB42B1B5C62003FD1CC /* ContentView.swift */; };
 		BA799EB72B1B5C68003FD1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA799EB62B1B5C68003FD1CC /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 		BA799ECE2B1B5C69003FD1CC /* checkersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECD2B1B5C69003FD1CC /* checkersUITests.swift */; };
 		BA799ED02B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */; };
 		BA799EDD2B1B5EEE003FD1CC /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = BA799EDC2B1B5EEE003FD1CC /* readme.md */; };
+		BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA800D582B1FB170009464FF /* NavigationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA2139112B23BC050037C10B /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		BA2F08712B1E562300A1C2AF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		BA2F08732B1E570E00A1C2AF /* PlayTogether.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTogether.swift; sourceTree = "<group>"; };
+		BA2F08732B1E570E00A1C2AF /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		BA799EAF2B1B5C62003FD1CC /* checkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA799EB22B1B5C62003FD1CC /* checkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersApp.swift; sourceTree = "<group>"; };
 		BA799EB42B1B5C62003FD1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		BA799ECD2B1B5C69003FD1CC /* checkersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITests.swift; sourceTree = "<group>"; };
 		BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA799EDC2B1B5EEE003FD1CC /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		BA800D582B1FB170009464FF /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA2139102B23BB030037C10B /* PlayField */ = {
+			isa = PBXGroup;
+			children = (
+				BA2F08732B1E570E00A1C2AF /* Field.swift */,
+				BA2139112B23BC050037C10B /* Checker.swift */,
+			);
+			path = PlayField;
+			sourceTree = "<group>";
+		};
 		BA799EA62B1B5C62003FD1CC = {
 			isa = PBXGroup;
 			children = (
@@ -101,12 +114,13 @@
 		BA799EB12B1B5C62003FD1CC /* checkers */ = {
 			isa = PBXGroup;
 			children = (
+				BA2139102B23BB030037C10B /* PlayField */,
+				BA800D572B1FB10B009464FF /* MainPage */,
 				BA799EB22B1B5C62003FD1CC /* checkersApp.swift */,
 				BA799EB42B1B5C62003FD1CC /* ContentView.swift */,
 				BA799EB62B1B5C68003FD1CC /* Assets.xcassets */,
 				BA799EB82B1B5C68003FD1CC /* Preview Content */,
 				BA2F08712B1E562300A1C2AF /* Settings.swift */,
-				BA2F08732B1E570E00A1C2AF /* PlayTogether.swift */,
 			);
 			path = checkers;
 			sourceTree = "<group>";
@@ -134,6 +148,14 @@
 				BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */,
 			);
 			path = checkersUITests;
+			sourceTree = "<group>";
+		};
+		BA800D572B1FB10B009464FF /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				BA800D582B1FB170009464FF /* NavigationButton.swift */,
+			);
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */,
-				BA2F08742B1E570E00A1C2AF /* PlayTogether.swift in Sources */,
+				BA2139122B23BC050037C10B /* Checker.swift in Sources */,
+				BA2F08742B1E570E00A1C2AF /* Field.swift in Sources */,
 				BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */,
+				BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */,
 				BA799EB32B1B5C62003FD1CC /* checkersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
