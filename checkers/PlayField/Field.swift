@@ -20,8 +20,9 @@ struct Field: View {
 	var body: some View {
 		ScrollView(.vertical) {
 			LazyHGrid(rows: rows, spacing: 0) {
-				ForEach(1...64, id: \.self) { index in
+				ForEach(0...63, id: \.self) { index in
 					let isBlack = ((index / 8) + (index % 2)) % 2 == 0
+					let _ = print("index: \(index) \(index / 8) + \(index % 2)")
 					
 					HStack() {
 						Checker(color: isBlack ? Color.black : Color.white)
