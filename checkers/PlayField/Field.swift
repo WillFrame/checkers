@@ -13,50 +13,30 @@ struct Field: View {
 										  .mint, .orange
 	]
 	
-	private let rows: [GridItem] = Array(repeating: GridItem(.flexible()), count: 8)
+	private let rows: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 8)
 	
 	@State private var draggingItem: Color?
 	
 	var body: some View {
-		ScrollView(.vertical) {
-			LazyHGrid(rows: rows, spacing: 0) {
-				ForEach(0...63, id: \.self) { index in
-					let isBlack = ((index / 8) + (index % 2)) % 2 == 0
-					let _ = print("index: \(index) \(index / 8) + \(index % 2)")
-					
-					HStack() {
-						Checker(color: isBlack ? Color.black : Color.white)
-							.padding(2)
+		VStack {
+			GeometryReader { geometry in
+				LazyHGrid(rows: rows, spacing: 0) {
+					ForEach(0...63, id: \.self) { index in
+						let isBlack = ((index / 8) + (index % 2)) % 2 == 0
+						
+						HStack() {
+							Checker(color: isBlack ? Color.black : Color.white)
+								.padding(2)
+						}
+						.background(isBlack ? Color.white : Color.brown)
+						.padding(0)
 					}
-					.background(isBlack ? Color.white : Color.brown)
-					.padding(0)
 				}
+				.frame(height: geometry.size.width)
 			}
-//			HStack(spacing: 0) {
-//				ForEach ((1...8), id: \.self) { hId in
-//					VStack(spacing: 0) {
-//						ForEach ((1...8), id: \.self) { vId in
-//							if (vId + hId) % 2 == 1 {
-//								HStack() {
-//									Checker(color: .black)
-//										.padding(2)
-//								}
-//								.frame(width: 50, height: 50)
-//								.background(.white)
-//								.padding(0)
-//							} else {
-//								HStack() {
-//									Checker(color: .white)
-//										.padding(2)
-//								}
-//								.frame(width: 50, height: 50)
-//								.background(.brown)
-//								.padding(0)
-//							}
-//						}
-//					}
-//				}
-//			}
+		}
+		
+//		ScrollView(.vertical) {
 //			HStack {
 //				let columns = Array(repeating: GridItem(spacing: 10), count: 3)
 //				LazyVGrid(columns: columns, spacing: 10, content: {
@@ -91,6 +71,6 @@ struct Field: View {
 //				})
 //				.padding(15)
 //			}
-		}
+//		}
 	}
 }

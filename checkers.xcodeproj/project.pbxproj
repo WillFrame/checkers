@@ -44,7 +44,7 @@
 		BA2F08732B1E570E00A1C2AF /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		BA799EAF2B1B5C62003FD1CC /* checkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA799EB22B1B5C62003FD1CC /* checkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersApp.swift; sourceTree = "<group>"; };
-		BA799EB42B1B5C62003FD1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BA799EB42B1B5C62003FD1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = checkers/ContentView.swift; sourceTree = SOURCE_ROOT; usesTabs = 1; wrapsLines = 0; };
 		BA799EB62B1B5C68003FD1CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA799EB92B1B5C68003FD1CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA799EBF2B1B5C68003FD1CC /* checkersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = checkersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
