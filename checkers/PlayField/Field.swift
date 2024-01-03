@@ -8,69 +8,39 @@
 import SwiftUI
 
 struct Field: View {
-	@State private var colors: [Color] = [.red, .blue, .purple, .yellow,
-										  .black, .indigo, .cyan, .brown,
-										  .mint, .orange
-	]
+	private let rows: [GridItem] = Array(repeating: GridItem(.adaptive(minimum: 40), spacing: 0), count: 8)
 	
-	private let rows: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 8)
-	
-	@State private var draggingItem: Color?
+	@State private var currentPlace: (Int, Int) = (0, 0)
+	@State private var selectedField: (Int, Int)?
 	
 	var body: some View {
 		VStack {
 			GeometryReader { geometry in
 				LazyHGrid(rows: rows, spacing: 0) {
 					ForEach(0...63, id: \.self) { index in
-						let isBlack = ((index / 8) + (index % 2)) % 2 == 0
+						let currentRow = index / 8
+						let currentColumn = index % 8
+						let currentCoordinates = (currentRow, currentColumn)
+						let isBlackField = (currentRow + currentColumn) % 2 == 0
 						
 						HStack() {
-							Checker(color: isBlack ? Color.black : Color.white)
-								.padding(2)
+							if currentPlace == currentCoordinates {
+								Checker(color: .black).padding(2)
+							}
 						}
-						.background(isBlack ? Color.white : Color.brown)
+						.frame(minWidth: 40, maxWidth: .infinity, minHeight: 40, maxHeight: .infinity)
+						.background(selectedField != nil && currentCoordinates == selectedField
+							? Color.red
+							: nil
+						)
+						.opacity(0.7)
+						.background(isBlackField ? Color.white : Color.brown)
 						.padding(0)
+						.onTapGesture {selectedField = currentCoordinates}
 					}
 				}
-				.frame(height: geometry.size.width)
+				.frame(width: geometry.size.width, height: geometry.size.width)
 			}
 		}
-		
-//		ScrollView(.vertical) {
-//			HStack {
-//				let columns = Array(repeating: GridItem(spacing: 10), count: 3)
-//				LazyVGrid(columns: columns, spacing: 10, content: {
-//					ForEach(colors, id: \.self) { color in
-//						GeometryReader {
-//							let size = $0.size
-//							
-//							RoundedRectangle(cornerRadius: 10)
-//								.fill(color.gradient)
-//								.draggable(color) {
-//									RoundedRectangle(cornerRadius: 10)
-//										.fill(.ultraThinMaterial)
-//										.frame(width: size.width, height: size.height)
-//								}
-//								.dropDestination(for: Color.self) { items, location in
-//									draggingItem = nil
-//									return false
-//								} isTargeted: { status in
-//									if let draggingItem, status, draggingItem != color {
-//										if let sourceIndex = colors.firstIndex(of: draggingItem),
-//										   let destinationIndex = colors.firstIndex(of: color) {
-//											withAnimation(.bouncy) {
-//												let sourceItem = colors.remove(at: sourceIndex)
-//												colors.insert(sourceItem, at: destinationIndex)
-//											}
-//										}
-//									}
-//								}
-//						}
-//						.frame(height: 100)
-//					}
-//				})
-//				.padding(15)
-//			}
-//		}
 	}
 }
