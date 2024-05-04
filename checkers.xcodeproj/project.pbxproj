@@ -19,8 +19,8 @@
 		BA799ED02B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */; };
 		BA799EDD2B1B5EEE003FD1CC /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = BA799EDC2B1B5EEE003FD1CC /* readme.md */; };
 		BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA800D582B1FB170009464FF /* NavigationButton.swift */; };
-		BAA02A9D2BCC24CE001A445C /* PlayableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA02A9C2BCC24CE001A445C /* PlayableField.swift */; };
-		BADFF19E2BDE9DF800B73717 /* CheckerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFF19D2BDE9DF800B73717 /* CheckerModel.swift */; };
+		BAA02A9D2BCC24CE001A445C /* PlayableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA02A9C2BCC24CE001A445C /* PlayableController.swift */; };
+		BADFF19E2BDE9DF800B73717 /* CheckerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFF19D2BDE9DF800B73717 /* CheckerController.swift */; };
 		BADFF1A02BDEA2A100B73717 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFF19F2BDEA2A100B73717 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +57,8 @@
 		BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA799EDC2B1B5EEE003FD1CC /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		BA800D582B1FB170009464FF /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
-		BAA02A9C2BCC24CE001A445C /* PlayableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayableField.swift; sourceTree = "<group>"; };
-		BADFF19D2BDE9DF800B73717 /* CheckerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerModel.swift; sourceTree = "<group>"; };
+		BAA02A9C2BCC24CE001A445C /* PlayableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayableController.swift; sourceTree = "<group>"; };
+		BADFF19D2BDE9DF800B73717 /* CheckerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerController.swift; sourceTree = "<group>"; };
 		BADFF19F2BDEA2A100B73717 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,8 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				BA2F08732B1E570E00A1C2AF /* Field.swift */,
-				BAA02A9C2BCC24CE001A445C /* PlayableField.swift */,
-				BADFF19D2BDE9DF800B73717 /* CheckerModel.swift */,
+				BAA02A9C2BCC24CE001A445C /* PlayableController.swift */,
+				BADFF19D2BDE9DF800B73717 /* CheckerController.swift */,
 				BADFF19F2BDEA2A100B73717 /* Cell.swift */,
 			);
 			path = PlayField;
@@ -306,10 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA02A9D2BCC24CE001A445C /* PlayableField.swift in Sources */,
+				BAA02A9D2BCC24CE001A445C /* PlayableController.swift in Sources */,
 				BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */,
 				BA2139122B23BC050037C10B /* Checker.swift in Sources */,
-				BADFF19E2BDE9DF800B73717 /* CheckerModel.swift in Sources */,
+				BADFF19E2BDE9DF800B73717 /* CheckerController.swift in Sources */,
 				BA2F08742B1E570E00A1C2AF /* Field.swift in Sources */,
 				BADFF1A02BDEA2A100B73717 /* Cell.swift in Sources */,
 				BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */,

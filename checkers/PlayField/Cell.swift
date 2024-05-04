@@ -9,9 +9,9 @@ import SwiftUI
 
 struct Cell <Content: View>: View {
 	public let isBlackField: Bool
-	@State public var isSelect: Bool
-	@State public var onTap: () -> Void
-	@State public var content: () -> Content
+	public var isSelect: Bool
+	public var onTap: () -> Void
+	public var content: () -> Content
 	
 	var body: some View {
 		HStack {
