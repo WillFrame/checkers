@@ -8,27 +8,34 @@
 import SwiftUI
 
 struct Field: View {
+	@State private var currentPlace: (Int, Int) = (0, 0)
+	@State private var selectedField: (Int, Int)? = (0, 0)
+	@State private var checkersPositions: PlayableController = PlayableController()
+	
 	var body: some View {
-		HStack(spacing: 0) {
-			ForEach ((1...8), id: \.self) { hId in
-				VStack(spacing: 0) {
-					ForEach ((1...8), id: \.self) { vId in
-						if (vId + hId) % 2 == 1 {
-							HStack() {
-								Checker(color: .black)
-									.padding(2)
+		VStack(spacing: 0) {
+			ForEach(0...7, id: \.self) { i in
+				let currentRow = i;
+				
+				HStack(spacing: 0) {
+					ForEach(0...7, id: \.self) { j in
+						let currentColumn = j % 8
+						let currentCoordinates = (currentRow, currentColumn)
+						let isBlackField = (currentRow + currentColumn) % 2 == 0
+						var isSelect: Bool = {
+							if let selectedField = selectedField {
+								return currentCoordinates == selectedField
+							} else {
+								return false
 							}
-								.frame(width: 50, height: 50)
-								.background(.white)
-								.padding(0)
-						} else {
-							HStack() {
-								Checker(color: .white)
-									.padding(2)
-							}
-								.frame(width: 50, height: 50)
-								.background(.brown)
-								.padding(0)
+						}()
+						
+						let checkerConfig = checkersPositions.getCellData(x: currentColumn, y: currentRow) ?? CheckerControllerConfig(x: 0, y: 0, checkerType: .Queen, side: .White)
+
+						Cell(isBlackField: isBlackField, isSelect: isSelect, onTap: {
+							self.selectedField = currentCoordinates
+						}) {
+							CheckerController(side: checkerConfig.side, type: checkerConfig.checkerType)
 						}
 					}
 				}

@@ -19,6 +19,9 @@
 		BA799ED02B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */; };
 		BA799EDD2B1B5EEE003FD1CC /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = BA799EDC2B1B5EEE003FD1CC /* readme.md */; };
 		BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA800D582B1FB170009464FF /* NavigationButton.swift */; };
+		BAA02A9D2BCC24CE001A445C /* PlayableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA02A9C2BCC24CE001A445C /* PlayableController.swift */; };
+		BADFF19E2BDE9DF800B73717 /* CheckerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFF19D2BDE9DF800B73717 /* CheckerController.swift */; };
+		BADFF1A02BDEA2A100B73717 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFF19F2BDEA2A100B73717 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +47,7 @@
 		BA2F08732B1E570E00A1C2AF /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		BA799EAF2B1B5C62003FD1CC /* checkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA799EB22B1B5C62003FD1CC /* checkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersApp.swift; sourceTree = "<group>"; };
-		BA799EB42B1B5C62003FD1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BA799EB42B1B5C62003FD1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = checkers/ContentView.swift; sourceTree = SOURCE_ROOT; usesTabs = 1; wrapsLines = 0; };
 		BA799EB62B1B5C68003FD1CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA799EB92B1B5C68003FD1CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA799EBF2B1B5C68003FD1CC /* checkersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = checkersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +57,9 @@
 		BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA799EDC2B1B5EEE003FD1CC /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		BA800D582B1FB170009464FF /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		BAA02A9C2BCC24CE001A445C /* PlayableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayableController.swift; sourceTree = "<group>"; };
+		BADFF19D2BDE9DF800B73717 /* CheckerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerController.swift; sourceTree = "<group>"; };
+		BADFF19F2BDEA2A100B73717 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				BA2F08732B1E570E00A1C2AF /* Field.swift */,
-				BA2139112B23BC050037C10B /* Checker.swift */,
+				BAA02A9C2BCC24CE001A445C /* PlayableController.swift */,
+				BADFF19D2BDE9DF800B73717 /* CheckerController.swift */,
+				BADFF19F2BDEA2A100B73717 /* Cell.swift */,
 			);
 			path = PlayField;
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 		BA799EB12B1B5C62003FD1CC /* checkers */ = {
 			isa = PBXGroup;
 			children = (
+				BADFF19C2BDE9D9A00B73717 /* Views */,
 				BA2139102B23BB030037C10B /* PlayField */,
 				BA800D572B1FB10B009464FF /* MainPage */,
 				BA799EB22B1B5C62003FD1CC /* checkersApp.swift */,
@@ -156,6 +165,14 @@
 				BA800D582B1FB170009464FF /* NavigationButton.swift */,
 			);
 			path = MainPage;
+			sourceTree = "<group>";
+		};
+		BADFF19C2BDE9D9A00B73717 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA2139112B23BC050037C10B /* Checker.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,9 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA02A9D2BCC24CE001A445C /* PlayableController.swift in Sources */,
 				BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */,
 				BA2139122B23BC050037C10B /* Checker.swift in Sources */,
+				BADFF19E2BDE9DF800B73717 /* CheckerController.swift in Sources */,
 				BA2F08742B1E570E00A1C2AF /* Field.swift in Sources */,
+				BADFF1A02BDEA2A100B73717 /* Cell.swift in Sources */,
 				BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */,
 				BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */,
 				BA799EB32B1B5C62003FD1CC /* checkersApp.swift in Sources */,

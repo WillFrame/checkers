@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-	@State private var tagSelection: String? = nil
+	@State private var tagSelection: String? = "playTogether"
 	
 	var body: some View {
 		VStack {

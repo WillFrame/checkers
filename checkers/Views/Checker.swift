@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Checker: View {
-	let color: Color;
+	let color: Color
 	
 	var body: some View {
 		HStack() {
