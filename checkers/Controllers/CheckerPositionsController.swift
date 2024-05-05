@@ -1,5 +1,5 @@
 //
-//  PlayableController.swift
+//  CheckerPositionsController.swift
 //  checkers
 //
 //  Created by Матвей Можевикин on 14.04.2024.
@@ -42,7 +42,7 @@ let startPosition: Set<CheckerControllerConfig> = [
 	CheckerControllerConfig(x: 7, y: 7, side: .Black),
 ]
 
-class PlayableController {
+class CheckerPositionsController {
 	@State private var checkersConfig: Set<CheckerControllerConfig> = startPosition
 	
 	func getPositions() -> Set<CheckerControllerConfig> {

@@ -19,7 +19,7 @@ enum CheckerType {
 
 struct CheckerController: View {
 	let side: Side
-	let type: CheckerType
+	var type: CheckerType
 	var color: Color {
 		get {
 			side == .White ? .white : .black
@@ -29,7 +29,6 @@ struct CheckerController: View {
 	var body: some View {
 		if type == .Checker {
 			Checker(color: color)
-				.padding(4)
 		} else {
 			EmptyView()
 		}
