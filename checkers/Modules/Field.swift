@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct Field: View {
-	@State private var currentPlace: (Int, Int) = (0, 0)
 	@State private var selectedField: (Int, Int)? = (0, 0)
-	@State private var checkersPositions: PlayableController = PlayableController()
+	@State private var checkersPositions = CheckerPositionsController()
 	
 	var body: some View {
 		VStack(spacing: 0) {
@@ -22,20 +21,16 @@ struct Field: View {
 						let currentColumn = j % 8
 						let currentCoordinates = (currentRow, currentColumn)
 						let isBlackField = (currentRow + currentColumn) % 2 == 0
-						var isSelect: Bool = {
-							if let selectedField = selectedField {
-								return currentCoordinates == selectedField
-							} else {
-								return false
-							}
-						}()
-						
 						let checkerConfig = checkersPositions.getCellData(x: currentColumn, y: currentRow) ?? CheckerControllerConfig(x: 0, y: 0, checkerType: .Queen, side: .White)
+						let isSelected: Bool = selectedField != nil
+							? currentCoordinates == selectedField!
+							: false
 
-						Cell(isBlackField: isBlackField, isSelect: isSelect, onTap: {
+						CellController(fieldColor: isBlackField ? .Black : .White, isSelected: isSelected, onTap: {
 							self.selectedField = currentCoordinates
 						}) {
 							CheckerController(side: checkerConfig.side, type: checkerConfig.checkerType)
+								.padding(4)
 						}
 					}
 				}
