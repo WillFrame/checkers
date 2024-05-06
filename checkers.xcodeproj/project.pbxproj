@@ -19,8 +19,10 @@
 		BA799ED02B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */; };
 		BA799EDD2B1B5EEE003FD1CC /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = BA799EDC2B1B5EEE003FD1CC /* readme.md */; };
 		BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA800D582B1FB170009464FF /* NavigationButton.swift */; };
-		BAA02A9D2BCC24CE001A445C /* CheckerPositionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA02A9C2BCC24CE001A445C /* CheckerPositionsController.swift */; };
+		BAA02A9D2BCC24CE001A445C /* FieldPositionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA02A9C2BCC24CE001A445C /* FieldPositionController.swift */; };
+		BAA248D12BE95DA500110747 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA248D02BE95DA500110747 /* Position.swift */; };
 		BABB793D2BE76892007E8B01 /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABB793C2BE76892007E8B01 /* CellController.swift */; };
+		BABB793F2BE77B9C007E8B01 /* CheckerStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABB793E2BE77B9C007E8B01 /* CheckerStateController.swift */; };
 		BADFF19E2BDE9DF800B73717 /* CheckerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFF19D2BDE9DF800B73717 /* CheckerController.swift */; };
 		BADFF1A02BDEA2A100B73717 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADFF19F2BDEA2A100B73717 /* Cell.swift */; };
 /* End PBXBuildFile section */
@@ -58,8 +60,10 @@
 		BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA799EDC2B1B5EEE003FD1CC /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		BA800D582B1FB170009464FF /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
-		BAA02A9C2BCC24CE001A445C /* CheckerPositionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerPositionsController.swift; sourceTree = "<group>"; };
+		BAA02A9C2BCC24CE001A445C /* FieldPositionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldPositionController.swift; sourceTree = "<group>"; };
+		BAA248D02BE95DA500110747 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		BABB793C2BE76892007E8B01 /* CellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
+		BABB793E2BE77B9C007E8B01 /* CheckerStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerStateController.swift; sourceTree = "<group>"; };
 		BADFF19D2BDE9DF800B73717 /* CheckerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerController.swift; sourceTree = "<group>"; };
 		BADFF19F2BDEA2A100B73717 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,9 +156,11 @@
 		BABB793A2BE7661B007E8B01 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BAA02A9C2BCC24CE001A445C /* CheckerPositionsController.swift */,
-				BADFF19D2BDE9DF800B73717 /* CheckerController.swift */,
+				BAA248D02BE95DA500110747 /* Position.swift */,
+				BABB793E2BE77B9C007E8B01 /* CheckerStateController.swift */,
 				BABB793C2BE76892007E8B01 /* CellController.swift */,
+				BADFF19D2BDE9DF800B73717 /* CheckerController.swift */,
+				BAA02A9C2BCC24CE001A445C /* FieldPositionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -309,8 +315,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA02A9D2BCC24CE001A445C /* CheckerPositionsController.swift in Sources */,
+				BAA02A9D2BCC24CE001A445C /* FieldPositionController.swift in Sources */,
 				BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */,
+				BAA248D12BE95DA500110747 /* Position.swift in Sources */,
+				BABB793F2BE77B9C007E8B01 /* CheckerStateController.swift in Sources */,
 				BA2139122B23BC050037C10B /* Checker.swift in Sources */,
 				BADFF19E2BDE9DF800B73717 /* CheckerController.swift in Sources */,
 				BA2F08742B1E570E00A1C2AF /* Field.swift in Sources */,
