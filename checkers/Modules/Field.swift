@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct Field: View {
-	@State private var selectedField: (Int, Int)? = (0, 0)
-	@State private var checkersPositions = CheckerPositionsController()
+	@State private var selectedField: (Int, Int)?
+	@StateObject private var fieldPositions = FieldPositionController()
 	
 	var body: some View {
 		VStack(spacing: 0) {
@@ -19,18 +19,31 @@ struct Field: View {
 				HStack(spacing: 0) {
 					ForEach(0...7, id: \.self) { j in
 						let currentColumn = j % 8
-						let currentCoordinates = (currentRow, currentColumn)
-						let isBlackField = (currentRow + currentColumn) % 2 == 0
-						let checkerConfig = checkersPositions.getCellData(x: currentColumn, y: currentRow) ?? CheckerControllerConfig(x: 0, y: 0, checkerType: .Queen, side: .White)
+						let cellCoordinates = (currentColumn, currentRow)
+						let isBlackField = (currentColumn + currentRow) % 2 == 1
+						let checkerConfig = fieldPositions.getCellData(currentColumn, currentRow)
 						let isSelected: Bool = selectedField != nil
-							? currentCoordinates == selectedField!
+							? cellCoordinates == selectedField!
 							: false
 
 						CellController(fieldColor: isBlackField ? .Black : .White, isSelected: isSelected, onTap: {
-							self.selectedField = currentCoordinates
+							if let selectField = selectedField {
+								if selectField == cellCoordinates {
+									return self.selectedField = nil
+								}
+								
+								if fieldPositions.getCellData(selectField.0, selectField.1) != nil {
+									fieldPositions.changeCheckerPosition(from: selectField, to: cellCoordinates)
+									return self.selectedField = nil
+								}
+							}
+							
+							self.selectedField = cellCoordinates
 						}) {
-							CheckerController(side: checkerConfig.side, type: checkerConfig.checkerType)
-								.padding(4)
+							if checkerConfig != nil {
+								CheckerController(side: checkerConfig!.side, type: checkerConfig!.checkerType)
+									.padding(4)
+							}
 						}
 					}
 				}

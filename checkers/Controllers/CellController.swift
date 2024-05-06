@@ -12,11 +12,12 @@ enum FieldColor {
 	case White
 }
 
-struct CellController<Content> : View where Content : View {
+struct CellController<Content: View>: View {
 	let fieldColor: FieldColor
 	var isSelected: Bool = false
 	let onTap: () -> Void
-	let content: () -> Content
+	let bgOpacity = 0.5
+	@ViewBuilder let content: () -> Content
 	
 	private var cellColor: Color {
 		get {
@@ -25,7 +26,7 @@ struct CellController<Content> : View where Content : View {
 	}
 	
 	var body: some View {
-		Cell(color: cellColor, bgOpacity: isSelected ? 0.6 : 1) {
+		Cell(color: cellColor, bgOpacity: isSelected ? bgOpacity : 1) {
 			content()
 		}
 			.background(isSelected ? .red : .clear)
