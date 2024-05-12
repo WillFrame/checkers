@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-enum Side {
-	case Black
-	case White
-}
-
-enum CheckerType {
-	case Checker
-	case Queen
-}
-
 struct CheckerController: View {
 	let side: Side
 	var type: CheckerType

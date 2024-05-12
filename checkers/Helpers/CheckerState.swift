@@ -1,13 +1,11 @@
 //
-//  CheckerStateController.swift
+//  CheckerState.swift
 //  checkers
 //
 //  Created by Матвей Можевикин on 05.05.2024.
 //
 
-import SwiftUI
-
-class CheckerStateController: Position {
+class CheckerState: Position {
 	var checkerType: CheckerType = .Checker
 	let side: Side
 	
@@ -19,14 +17,13 @@ class CheckerStateController: Position {
 		return self.checkerType = .Queen
 	}
 	
-	init(position: (Int, Int), side: Side, checkerType: CheckerType) {
-		self.checkerType = checkerType
+	init(position: (Int, Int), side: Side) {
 		self.side = side
 		super.init(position: position)
 	}
 	
-	init(position: (Int, Int), side: Side) {
-		self.side = side
-		super.init(position: position)
+	convenience init(position: (Int, Int), side: Side, checkerType: CheckerType) {
+		self.init(position: position, side: side)
+		self.checkerType = checkerType
 	}
 }

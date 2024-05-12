@@ -7,14 +7,10 @@
 
 import SwiftUI
 
-enum FieldColor {
-	case Black
-	case White
-}
-
 struct CellController<Content: View>: View {
 	let fieldColor: FieldColor
 	var isSelected: Bool = false
+	var isSelectPossible: Bool = false
 	let onTap: () -> Void
 	let bgOpacity = 0.5
 	@ViewBuilder let content: () -> Content
@@ -26,10 +22,15 @@ struct CellController<Content: View>: View {
 	}
 	
 	var body: some View {
-		Cell(color: cellColor, bgOpacity: isSelected ? bgOpacity : 1) {
+		Cell(color: cellColor, bgOpacity: (isSelected || isSelectPossible) ? bgOpacity : 1) {
 			content()
 		}
-			.background(isSelected ? .red : .clear)
+			.background(isSelected
+							? .red
+							: isSelectPossible
+								? .green
+								: .clear
+			)
 			.onTapGesture(perform: onTap)
 	}
 }
