@@ -8,41 +8,40 @@
 import SwiftUI
 
 struct Field: View {
-	@State private var selectedField: (Int, Int)?
-	@StateObject private var fieldPositions = FieldPositionController()
+	@StateObject private var fieldPositions = SelectableField()
 	
 	var body: some View {
-		VStack(spacing: 0) {
-			ForEach(0...7, id: \.self) { i in
-				let currentRow = i;
-				
-				HStack(spacing: 0) {
-					ForEach(0...7, id: \.self) { j in
-						let currentColumn = j % 8
-						let cellCoordinates = (currentColumn, currentRow)
-						let isBlackField = (currentColumn + currentRow) % 2 == 1
-						let checkerConfig = fieldPositions.getCellData(currentColumn, currentRow)
-						let isSelected: Bool = selectedField != nil
-							? cellCoordinates == selectedField!
-							: false
-
-						CellController(fieldColor: isBlackField ? .Black : .White, isSelected: isSelected, onTap: {
-							if let selectField = selectedField {
-								if selectField == cellCoordinates {
-									return self.selectedField = nil
-								}
-								
-								if fieldPositions.getCellData(selectField.0, selectField.1) != nil {
-									fieldPositions.changeCheckerPosition(from: selectField, to: cellCoordinates)
-									return self.selectedField = nil
-								}
-							}
+		VStack {
+			Text("Ход \(fieldPositions.turn == .Black ? "черных" : "белых")")
+				.font(.title)
+			VStack(spacing: 0) {
+				ForEach(0...7, id: \.self) { currentRow in
+					HStack(spacing: 0) {
+						ForEach(0...7, id: \.self) { currentColumn in
+							let position = (currentColumn, currentRow)
+							let isBlackField = fieldPositions.getIsPosibleField(position)
+							let checkerConfig = fieldPositions.getPositionData(position)
+							let isSelected: Bool = fieldPositions.getIsSelectedField(position)
+							let isSelectPossible: Bool = fieldPositions.selectedField != nil && fieldPositions.getIsSelectPossible(position)
 							
-							self.selectedField = cellCoordinates
-						}) {
-							if checkerConfig != nil {
-								CheckerController(side: checkerConfig!.side, type: checkerConfig!.checkerType)
-									.padding(4)
+							CellController(
+								fieldColor: isBlackField ? .Black : .White,
+								isSelected: isSelected,
+								isSelectPossible: isSelectPossible,
+								onTap: {
+									if isBlackField {
+										fieldPositions.selectField(position)
+									}
+	//								withAnimation(.default) {
+//									print(fieldPositions.possibleSelections.map { $0.position })
+	//								}
+								}
+							) {
+								if let checkerConfig = checkerConfig {
+									CheckerController(side: checkerConfig.side, type: checkerConfig.checkerType)
+										.padding(4)
+//										.transition(.offset(x: 0, y: 400))
+								}
 							}
 						}
 					}

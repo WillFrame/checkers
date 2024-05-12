@@ -8,10 +8,6 @@
 class Position: Hashable {
 	var position: (Int, Int)
 	
-	func getPosition() -> (Int, Int) {
-		position
-	}
-	
 	func hash(into hasher: inout Hasher) {
 		hasher.combine("\(position.0) \(position.1)")
 	}
