@@ -22,12 +22,12 @@ struct Field: View {
 							let isBlackField = fieldPositions.getIsPosibleField(position)
 							let checkerConfig = fieldPositions.getPositionData(position)
 							let isSelected: Bool = fieldPositions.getIsSelectedField(position)
-							let isSelectPossible: Bool = fieldPositions.selectedField != nil && fieldPositions.getIsSelectPossible(position)
+							let isMovable: Bool = fieldPositions.possibleMoves.contains { $0.position == position }
 							
 							CellController(
 								fieldColor: isBlackField ? .Black : .White,
 								isSelected: isSelected,
-								isSelectPossible: isSelectPossible,
+								isMovable: isMovable,
 								onTap: {
 									if isBlackField {
 										fieldPositions.selectField(position)

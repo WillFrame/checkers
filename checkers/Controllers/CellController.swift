@@ -10,10 +10,14 @@ import SwiftUI
 struct CellController<Content: View>: View {
 	let fieldColor: FieldColor
 	var isSelected: Bool = false
-	var isSelectPossible: Bool = false
+	var isMovable: Bool = false
 	let onTap: () -> Void
 	let bgOpacity = 0.5
 	@ViewBuilder let content: () -> Content
+	
+	var bgColor: Color {
+		get { isSelected ? .red : isMovable ? .green : .clear }
+	}
 	
 	private var cellColor: Color {
 		get {
@@ -22,15 +26,10 @@ struct CellController<Content: View>: View {
 	}
 	
 	var body: some View {
-		Cell(color: cellColor, bgOpacity: (isSelected || isSelectPossible) ? bgOpacity : 1) {
+		Cell(color: cellColor, bgOpacity: (isSelected || isMovable) ? bgOpacity : 1) {
 			content()
 		}
-			.background(isSelected
-							? .red
-							: isSelectPossible
-								? .green
-								: .clear
-			)
+			.background(bgColor)
 			.onTapGesture(perform: onTap)
 	}
 }
