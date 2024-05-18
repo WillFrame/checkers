@@ -39,6 +39,10 @@ class FieldPosition: Turn {
 		}
 	}
 	
+	func getCurrentSideCheckers() -> Set<CheckerState> {
+		getSideCheckers(side: turn)
+	}
+	
 	func deleteChecker(_ position: (Int, Int)) {
 		if let checkerConfig = getPositionData(position) {
 			checkersConfig.remove(checkerConfig)
