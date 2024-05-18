@@ -11,6 +11,7 @@
 		BA2139122B23BC050037C10B /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2139112B23BC050037C10B /* Checker.swift */; };
 		BA2F08722B1E562300A1C2AF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F08712B1E562300A1C2AF /* Settings.swift */; };
 		BA2F08742B1E570E00A1C2AF /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2F08732B1E570E00A1C2AF /* Field.swift */; };
+		BA57B7222BF8D9600047540C /* ChopConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57B7212BF8D9600047540C /* ChopConfig.swift */; };
 		BA799EB32B1B5C62003FD1CC /* checkersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799EB22B1B5C62003FD1CC /* checkersApp.swift */; };
 		BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799EB42B1B5C62003FD1CC /* ContentView.swift */; };
 		BA799EB72B1B5C68003FD1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA799EB62B1B5C68003FD1CC /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		BA2139112B23BC050037C10B /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		BA2F08712B1E562300A1C2AF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		BA2F08732B1E570E00A1C2AF /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		BA57B7212BF8D9600047540C /* ChopConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChopConfig.swift; sourceTree = "<group>"; };
 		BA799EAF2B1B5C62003FD1CC /* checkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA799EB22B1B5C62003FD1CC /* checkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersApp.swift; sourceTree = "<group>"; };
 		BA799EB42B1B5C62003FD1CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = checkers/ContentView.swift; sourceTree = SOURCE_ROOT; usesTabs = 1; wrapsLines = 0; };
@@ -193,9 +195,10 @@
 		BACAD1AD2BEEAE1B004267EC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				BABB793E2BE77B9C007E8B01 /* CheckerState.swift */,
 				BAA248D02BE95DA500110747 /* Position.swift */,
 				BA0BB6A02BEFD9F1004A6301 /* DiagonalPosition.swift */,
+				BABB793E2BE77B9C007E8B01 /* CheckerState.swift */,
+				BA57B7212BF8D9600047540C /* ChopConfig.swift */,
 				BACAD1B02BEEB56A004267EC /* Turn.swift */,
 				BACAD1B72BEFBCBE004267EC /* FieldPosition.swift */,
 				BACAD1B92BEFBD78004267EC /* SelectableField.swift */,
@@ -377,6 +380,7 @@
 				BA2F08742B1E570E00A1C2AF /* Field.swift in Sources */,
 				BADFF1A02BDEA2A100B73717 /* Cell.swift in Sources */,
 				BA799EB52B1B5C62003FD1CC /* ContentView.swift in Sources */,
+				BA57B7222BF8D9600047540C /* ChopConfig.swift in Sources */,
 				BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */,
 				BA799EB32B1B5C62003FD1CC /* checkersApp.swift in Sources */,
 				BACAD1C32BEFCB98004267EC /* CheckerType.swift in Sources */,

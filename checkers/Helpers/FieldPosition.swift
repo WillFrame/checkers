@@ -27,12 +27,12 @@ class FieldPosition: Turn {
 		}
 	}
 	
-	func getSideCheckers(side: Side) -> Set<Position> {
-		checkersConfig.reduce(Set<Position>()) { prev, checker in
+	func getSideCheckers(side: Side) -> Set<CheckerState> {
+		checkersConfig.reduce(Set<CheckerState>()) { prev, checker in
 			var result = prev
 			
 			if checker.side == side {
-				result.insert(Position(position: checker.position))
+				result.insert(checker)
 			}
 			
 			return result
