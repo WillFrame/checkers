@@ -20,6 +20,7 @@
 		BA799ECE2B1B5C69003FD1CC /* checkersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECD2B1B5C69003FD1CC /* checkersUITests.swift */; };
 		BA799ED02B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */; };
 		BA799EDD2B1B5EEE003FD1CC /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = BA799EDC2B1B5EEE003FD1CC /* readme.md */; };
+		BA7E43452BFA400100E56376 /* ChopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E43442BFA400100E56376 /* ChopItem.swift */; };
 		BA800D592B1FB170009464FF /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA800D582B1FB170009464FF /* NavigationButton.swift */; };
 		BAA248D12BE95DA500110747 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA248D02BE95DA500110747 /* Position.swift */; };
 		BABB793D2BE76892007E8B01 /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABB793C2BE76892007E8B01 /* CellController.swift */; };
@@ -70,6 +71,7 @@
 		BA799ECD2B1B5C69003FD1CC /* checkersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITests.swift; sourceTree = "<group>"; };
 		BA799ECF2B1B5C69003FD1CC /* checkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA799EDC2B1B5EEE003FD1CC /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		BA7E43442BFA400100E56376 /* ChopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChopItem.swift; sourceTree = "<group>"; };
 		BA800D582B1FB170009464FF /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		BAA248D02BE95DA500110747 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		BABB793C2BE76892007E8B01 /* CellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				BAA248D02BE95DA500110747 /* Position.swift */,
 				BA0BB6A02BEFD9F1004A6301 /* DiagonalPosition.swift */,
 				BABB793E2BE77B9C007E8B01 /* CheckerState.swift */,
+				BA7E43442BFA400100E56376 /* ChopItem.swift */,
 				BA57B7212BF8D9600047540C /* ChopConfig.swift */,
 				BACAD1B02BEEB56A004267EC /* Turn.swift */,
 				BACAD1B72BEFBCBE004267EC /* FieldPosition.swift */,
@@ -386,6 +389,7 @@
 				BACAD1C32BEFCB98004267EC /* CheckerType.swift in Sources */,
 				BA0BB6A12BEFD9F1004A6301 /* DiagonalPosition.swift in Sources */,
 				BACAD1C12BEFCB81004267EC /* FieldColor.swift in Sources */,
+				BA7E43452BFA400100E56376 /* ChopItem.swift in Sources */,
 				BABB793D2BE76892007E8B01 /* CellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -43,10 +43,12 @@ class FieldPosition: Turn {
 		getSideCheckers(side: turn)
 	}
 	
+	func filterPossiblePositions(_ positions: Set<Position>) -> Set<Position> {
+		positions.filter { getIsValidPosition($0.position) }
+	}
+	
 	func deleteChecker(_ position: (Int, Int)) {
-		if let checkerConfig = getPositionData(position) {
-			checkersConfig.remove(checkerConfig)
-		}
+		self.checkersConfig = checkersConfig.filter { $0.position != position }
 	}
 	
 	func getIsValidPosition(_ position: (Int, Int)) -> Bool {

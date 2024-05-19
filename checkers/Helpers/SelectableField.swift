@@ -13,6 +13,7 @@ final class SelectableField: FieldPosition, ObservableObject {
 	@Published public private(set) var currentChopOptions: Set<ChopConfig> = []
 	@Published public private(set) var selectedField: Position? = nil
 	@Published private var currentChecker: CheckerState?
+	@Published private var isActiveChops = false
 	
 	func selectField(_ position: (Int, Int)) {
 		if let selectedField = selectedField, selectedField.position == position {
@@ -23,37 +24,41 @@ final class SelectableField: FieldPosition, ObservableObject {
 			self.selectedField = Position(position: checker.position)
 			self.currentChecker = checker
 			if currentChopOptions.isEmpty {
-				return self.possibleMoves = getPossibleCheckerMoves(checker)
+				self.possibleMoves = getPossibleCheckerMoves(checker)
+			} else if let options = currentChopOptions.first(where: { $0.checker == currentChecker }) {
+				self.possibleMoves = filterPossiblePositions(options.getFieldsAfterChop())
+			} else {
+				clearPossibleMoves()
 			}
+			return
 		}
+		
+		print(possibleMoves.map { $0.position })
 		
 		if possibleMoves.contains(where: { $0.position == position }), let currentChecker = currentChecker {
-			moveChecker(currentChecker, newPosition: position)
+			var chopedChecker: (Int, Int)?
+			
+			if let chop = currentChopOptions.first(where: { $0.checker == currentChecker }) {
+				let nextPos = Position(position: position)
+				let findedChop = chop.chopOptions.first(where: { $0.positionsAfterChop.contains(nextPos) })
+				
+				chopedChecker = findedChop?.chopItem.position
+			}
+			
+			moveChecker(currentChecker, newPosition: position, chopedPos: chopedChecker)
+			
+			if chopedChecker == nil {
+				self.isActiveChops = false
+				return endTurn()
+			}
+			
+			let currentChopOptionals = getAllPossibleChops()
+			if !currentChopOptionals.isEmpty {
+				return self.isActiveChops = true
+			}
+			
+			return endTurn()
 		}
-		
-//		if selectedField == nil && possibleSelections.contains(Position(position: position)) {
-//			return self.selectedField = Position(position: position)
-//		}
-		
-//		if let oldSelectedField = selectedField {
-//			if let checker = self.getPositionData(oldSelectedField.position) {
-//				if possibleSelections.contains(Position(position: position)) {
-//					self.selectedField = nil
-//					return moveChecker(checker, newPosition: position)
-//				} else {
-//					let checkers = getSideCheckers(side: turn).reduce(Set<Position>()) { prev, checker in
-//						var prev = prev
-//						prev.insert(Position(position: checker.position))
-//						return prev
-//					}
-//					let finalPos = Position(position: position)
-//					
-//					if checkers.contains(finalPos) {
-//						self.selectedField = finalPos
-//					}
-//				}
-//			}
-//		}
 		
 		clearSelections()
 	}
@@ -70,8 +75,12 @@ final class SelectableField: FieldPosition, ObservableObject {
 		return false
 	}
 	
-	private func clearSelections() {
+	private func clearPossibleMoves() {
 		self.possibleMoves.removeAll()
+	}
+	
+	private func clearSelections() {
+		clearPossibleMoves()
 		self.currentChecker = nil
 		return self.selectedField = nil
 	}
@@ -89,13 +98,10 @@ final class SelectableField: FieldPosition, ObservableObject {
 	}
 	
 	private func moveChecker(_ checker: CheckerState, newPosition: (Int, Int), chopedPos: (Int, Int)? = nil) {
+		changeCheckerPosition(from: checker.position, to: newPosition)
 		if let chopedPos = chopedPos {
 			deleteChecker(chopedPos)
-		} else {
-			changeTurn()
 		}
-		changeCheckerPosition(from: checker.position, to: newPosition)
-		self.currentChopOptions = getAllPossibleChops()
 	}
 
 	private func getAllPossibleChops() -> Set<ChopConfig> {
@@ -106,7 +112,7 @@ final class SelectableField: FieldPosition, ObservableObject {
 			let possibleChops = getPossibleChops(checker)
 			
 			if !possibleChops.isEmpty {
-				prev.insert(ChopConfig(checker: checker, chops: possibleChops))
+				prev.insert(ChopConfig(checker: checker, chops: possibleChops, maximumFieldValue: self.maximumFieldValue))
 			}
 			
 			return prev
@@ -114,11 +120,10 @@ final class SelectableField: FieldPosition, ObservableObject {
 	}
 	
 	private func getPossibleCheckerMoves(_ checker: CheckerState) -> Set<Position> {
-		if checker.checkerType == .Checker {
-			return getPossibleDefaultCheckerMoves(checker)
-		}
-		
-		return getPossibleQueenMoves(checker)
+		filterPossiblePositions(checker.checkerType == .Checker
+			? getPossibleDefaultCheckerMoves(checker)
+			: getPossibleQueenMoves(checker)
+		)
 	}
 	
 	private func getAllCheckerAroundMoves(_ checker: CheckerState) -> Set<DiagonalPosition> {
@@ -134,10 +139,9 @@ final class SelectableField: FieldPosition, ObservableObject {
 	}
 	
 	private func getPossibleChops(_ checker: CheckerState) -> Set<DiagonalPosition> {
-		if checker.checkerType == .Checker {
-			return getPossibleDefaultCheckerChops(checker)
-		}
-		return getPossibleQueenChops(checker)
+		return (checker.checkerType == .Checker
+			? getPossibleDefaultCheckerChops(checker)
+				: getPossibleQueenChops(checker)).filter { getIsValidPosition($0.position) }
 	}
 	
 	private func getPossibleDefaultCheckerChops(_ checker: CheckerState) -> Set<DiagonalPosition> {
@@ -145,13 +149,15 @@ final class SelectableField: FieldPosition, ObservableObject {
 			var result = prev
 			
 			if let currentChecker = self.getPositionData(position.position) {
-				if currentChecker.side != checker.side && self.getPositionData(position.getNext().position) == nil {
-					result.insert(position.getNext())
+				let nextItem = position.getNext()
+				
+				if currentChecker.side != checker.side && getIsValidPosition(nextItem.position) && self.getPositionData(nextItem.position) == nil  {
+					result.insert(position)
 				}
 			}
 			
 			return result
-		}
+		}.filter { self.getIsValidPosition($0.position) }
 	}
 	
 	private func getPossibleDefaultCheckerMoves(_ checker: CheckerState) -> Set<DiagonalPosition> {
@@ -183,6 +189,7 @@ final class SelectableField: FieldPosition, ObservableObject {
 	
 	private func endTurn() {
 		changeTurn()
+		clearSelections()
 		self.currentChopOptions = getAllPossibleChops()
 		self.possibleCheckers = getCurrentSideCheckers()
 	}
